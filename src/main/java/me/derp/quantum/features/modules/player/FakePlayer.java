@@ -69,7 +69,7 @@ public class FakePlayer extends Module {
             return;
         }
         if (otherPlayer == null) {
-            otherPlayer = new EntityOtherPlayerMP(mc.world, new GameProfile(UUID.randomUUID(), "TestDummy"));
+            otherPlayer = new EntityOtherPlayerMP(mc.world, new GameProfile(UUID.randomUUID(), "ZANE"));
             otherPlayer.copyLocationAndAnglesFrom(mc.player);
             otherPlayer.inventory.copyInventory(mc.player.inventory);
         }
