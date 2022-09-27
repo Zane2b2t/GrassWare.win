@@ -16,4 +16,4 @@ the version of Minecraft running (ex: `.minecraft/mods/1.12.2`). NOTE: This is w
 only put the mod jar in the `/mods` folder!
 4. Launch Minecraft using the Forge profile. Quantum should now be loaded.
 
-Thanks @Rat2b2t for the amazing readme!!!!!
+Thanks @Rat2b2t for the amazing readme!!!!!1
