@@ -55,7 +55,7 @@ public class CrystalAura
     public Setting<Boolean> place = this.register(new Setting<Boolean>("Place", true));
     public Setting<Boolean> fastplace = this.register(new Setting<Boolean>("NoDelayPlace", true));
     public Setting<Boolean> fastPop = this.register(new Setting<Boolean>("FastPop", false));
-    public Setting<Boolean> fastercaithink = this.register(new Setting<Boolean>("FasterCa", false));
+    public Setting<Boolean> antiNaked = this.register(new Setting<Boolean>("AntiNaked", false));
     public Setting<Float> placeDelay = this.register(new Setting<Float>("PlaceDelay", Float.valueOf(4.0f), Float.valueOf(0.0f), Float.valueOf(300.0f)));
     public Setting<Float> placeRange = this.register(new Setting<Float>("PlaceRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
     public Setting<Float> placeWallRange = this.register(new Setting<Float>("PlaceWallRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
@@ -245,11 +245,6 @@ public class CrystalAura
         if (fastPop.getValue()) {
         CrystalAura.isDoublePopable((EntityPlayer) this.target, (float) damage);
         }
-        if (fastercaithink.getValue()) {
-        this.placeCrystal();
-        CrystalAura.mc.playerController.attackEntity(CrystalAura.mc.player, this.crystal);
-        this.placeCrystal();
-        }
     }
 
     @Override
@@ -341,10 +336,8 @@ public class CrystalAura
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
             } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
             EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
-                }
             }
         }
-        public void placeCrystal() {
         if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
             this.placeTimer.reset();
             double damage = 0.5;
@@ -354,18 +347,6 @@ public class CrystalAura
                 if (blockPos == null || this.target == null || !CrystalAura.mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(blockPos)).isEmpty() || (targetRange = this.target.getDistance(blockPos.getX(), blockPos.getY(), blockPos.getZ())) > (double) this.targetRange.getValue().floatValue() || this.target.isDead || this.target.getHealth() + this.target.getAbsorptionAmount() <= 0.0f)
                     continue;
                 double targetDmg = this.calculateDamage((double) blockPos.getX() + 0.5, (double) blockPos.getY() + 1.0, (double) blockPos.getZ() + 0.5, this.target);
-                this.armor = false;
-                for (ItemStack is : this.target.getArmorInventoryList()) {
-                    float green = ((float) is.getMaxDamage() - (float) is.getItemDamage()) / (float) is.getMaxDamage();
-                    float red = 1.0f - green;
-                    int dmg = 100 - (int) (red * 100.0f);
-                    if (!((float) dmg <= this.minArmor.getValue().floatValue())) continue;
-                    this.armor = true;
-        }
-        if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
-            this.placeTimer.reset();
-                if (blockPos == null || this.target == null || !CrystalAura.mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(blockPos)).isEmpty() || (targetRange = this.target.getDistance(blockPos.getX(), blockPos.getY(), blockPos.getZ())) > (double) this.targetRange.getValue().floatValue() || this.target.isDead || this.target.getHealth() + this.target.getAbsorptionAmount() <= 0.0f)
-                    continue;
                 this.armor = false;
                 for (ItemStack is : this.target.getArmorInventoryList()) {
                     float green = ((float) is.getMaxDamage() - (float) is.getItemDamage()) / (float) is.getMaxDamage();
@@ -425,7 +406,6 @@ public class CrystalAura
             } else if (this.pos != null) {
                 this.rotateToPos(this.pos);
                 CrystalAura.mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(this.pos, EnumFacing.UP, CrystalAura.mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
-                }
             }
         }
     }
