@@ -1,4 +1,7 @@
 # Quantum++ | continuation of a continuation of a weird client!
+![Lines of code](https://img.shields.io/tokei/lines/github/Zane2b2t/quantum-Continued-Plus?color=lightcoral&label=lines%20of%20code)
+![GitHub repo size](https://img.shields.io/github/repo-size/Zane2b2t/quantum-Continued-Plus)
+
 
 this client was made because zane liked quantum!
 
