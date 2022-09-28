@@ -38,8 +38,6 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.awt.*;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -102,7 +100,6 @@ public class CrystalAura
     private int hotBarSlot;
     private int lastSlot;
     private boolean armor;
-    private static final Map<EntityPlayer, Timer> totemPops = new ConcurrentHashMap<>();
     private boolean armorTarget;
     private int crystalCount;
     private int predictWait;
@@ -202,13 +199,11 @@ public class CrystalAura
         this.realTarget = null;
         this.armor = false;
         this.armorTarget = false;
-        totemPops.clear();
     }
 
     @Override
     public void onDisable() {
         this.rotating = false;
-        totemPops.clear();
     }
 
     @SubscribeEvent
@@ -232,8 +227,11 @@ public class CrystalAura
             CrystalAura.mc.rightClickDelayTimer = 0;
         }
         this.onCrystal();
+<<<<<<< HEAD
         double damage = this.calculateDamage((double) this.target.getPosition().getX() + 0.5, (double) this.target.getPosition().getY() + 1.0, (double) this.target.getPosition().getZ() + 0.5, this.target);
         }
+=======
+>>>>>>> parent of 7fccb57 (added fastpop to crystalaura and autobuild batch file)
     }
 
     @Override
