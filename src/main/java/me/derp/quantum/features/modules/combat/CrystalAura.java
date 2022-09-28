@@ -54,8 +54,6 @@ public class CrystalAura
     private final Timer manualTimer = new Timer();
     public Setting<Boolean> place = this.register(new Setting<Boolean>("Place", true));
     public Setting<Boolean> fastplace = this.register(new Setting<Boolean>("NoDelayPlace", true));
-    public Setting<Boolean> fastPop = this.register(new Setting<Boolean>("FastPop", false));
-    public Setting<Boolean> antiNaked = this.register(new Setting<Boolean>("AntiNaked", false));
     public Setting<Float> placeDelay = this.register(new Setting<Float>("PlaceDelay", Float.valueOf(4.0f), Float.valueOf(0.0f), Float.valueOf(300.0f)));
     public Setting<Float> placeRange = this.register(new Setting<Float>("PlaceRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
     public Setting<Float> placeWallRange = this.register(new Setting<Float>("PlaceWallRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
@@ -222,18 +220,8 @@ public class CrystalAura
                 for (int i = 0; i <= yawSteps.getValue(); i++) {
                     Quantum.rotationManagerNew.setYaw(angle[0] / i);
                     Quantum.rotationManagerNew.setPitch(angle[1] / i);
-                }
             }
         }
-    }
-
-    public static boolean isDoublePopable(EntityPlayer player, float damage) {
-        double health = player.getHealth();
-        if (health <= 1.0 && damage > health + 0.5 && damage <= 4.0) {
-            Timer timer = totemPops.get(player);
-            return timer == null || timer.passed((long)500.0);
-        }
-        return false;
     }
 
     @Override
@@ -245,8 +233,6 @@ public class CrystalAura
         }
         this.onCrystal();
         double damage = this.calculateDamage((double) this.target.getPosition().getX() + 0.5, (double) this.target.getPosition().getY() + 1.0, (double) this.target.getPosition().getZ() + 0.5, this.target);
-        if (fastPop.getValue()) {
-        CrystalAura.isDoublePopable((EntityPlayer) this.target, (float) damage);
         }
     }
 
@@ -256,6 +242,7 @@ public class CrystalAura
             return this.realTarget.getName();
         }
         return null;
+        }
     }
 
     public void onCrystal() {
@@ -339,7 +326,6 @@ public class CrystalAura
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
             } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
             EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
-            }
         }
         if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
             this.placeTimer.reset();
