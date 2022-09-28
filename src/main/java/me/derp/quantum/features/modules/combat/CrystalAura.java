@@ -228,8 +228,11 @@ public class CrystalAura
         }
         this.onCrystal();
 <<<<<<< HEAD
+<<<<<<< HEAD
         double damage = this.calculateDamage((double) this.target.getPosition().getX() + 0.5, (double) this.target.getPosition().getY() + 1.0, (double) this.target.getPosition().getZ() + 0.5, this.target);
         }
+=======
+>>>>>>> parent of 7fccb57 (added fastpop to crystalaura and autobuild batch file)
 =======
 >>>>>>> parent of 7fccb57 (added fastpop to crystalaura and autobuild batch file)
     }
