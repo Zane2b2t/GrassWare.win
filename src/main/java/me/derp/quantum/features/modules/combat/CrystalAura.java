@@ -166,9 +166,6 @@ public class CrystalAura
             (Objects.<Entity>requireNonNull(packet.getEntityFromWorld(mc.world))).setDead();
             mc.world.removeEntityFromWorld(packet.entityId);
         }
-        if (fastercaithink.getValue()) {
-        this.placeCrystal();
-        }
     }
 
     private void rotateTo(Entity entity) {
@@ -237,7 +234,7 @@ public class CrystalAura
     }
 
     @Override
-    public void onUpdate() {
+    public void onTick() {
         if (fullNullCheck()) return;
         // made it apply to offhand :)
         if (fastplace.getValue() && (mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL || mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL)) {
@@ -247,6 +244,15 @@ public class CrystalAura
         double damage = this.calculateDamage((double) this.target.getPosition().getX() + 0.5, (double) this.target.getPosition().getY() + 1.0, (double) this.target.getPosition().getZ() + 0.5, this.target);
         if (fastPop.getValue()) {
         CrystalAura.isDoublePopable((EntityPlayer) this.target, (float) damage);
+        }
+    }
+
+    @Override
+    public void onUpdate() {
+        if (fastercaithink.getValue()) {
+        this.placeCrystal();
+        CrystalAura.mc.playerController.attackEntity(CrystalAura.mc.player, this.crystal);
+        this.placeCrystal();
         }
     }
 
