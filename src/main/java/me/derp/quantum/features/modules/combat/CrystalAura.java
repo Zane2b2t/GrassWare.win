@@ -245,6 +245,10 @@ public class CrystalAura
         if (fastPop.getValue()) {
         CrystalAura.isDoublePopable((EntityPlayer) this.target, (float) damage);
         }
+    }
+
+    @Override
+    public void onUpdate() {
         if (fastercaithink.getValue()) {
         this.placeCrystal();
         CrystalAura.mc.playerController.attackEntity(CrystalAura.mc.player, this.crystal);
