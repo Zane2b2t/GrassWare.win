@@ -55,6 +55,7 @@ public class CrystalAura
     public Setting<Boolean> place = this.register(new Setting<Boolean>("Place", true));
     public Setting<Boolean> fastplace = this.register(new Setting<Boolean>("NoDelayPlace", true));
     public Setting<Boolean> fastPop = this.register(new Setting<Boolean>("FastPop", false));
+    public Setting<Boolean> antiNaked = this.register(new Setting<Boolean>("AntiNaked", false));
     public Setting<Float> placeDelay = this.register(new Setting<Float>("PlaceDelay", Float.valueOf(4.0f), Float.valueOf(0.0f), Float.valueOf(300.0f)));
     public Setting<Float> placeRange = this.register(new Setting<Float>("PlaceRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
     public Setting<Float> placeWallRange = this.register(new Setting<Float>("PlaceWallRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
@@ -321,11 +322,20 @@ public class CrystalAura
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
             } else if (this.swingMode.getValue() == SwingMode.OffHand) {
                 CrystalAura.mc.player.swingArm(EnumHand.OFF_HAND);
-            } else if (this.swingMode.getValue() == SwingMode.Both) {
+            } else if (this.swingMode.getValue() == SwingMode.FakeMainHand) {
+            EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
+            } else if (this.swingMode.getValue() == SwingMode.FakeOffHand) {
+            EntityUtil.swingArmNoPacket(EnumHand.OFF_HAND, (EntityLivingBase)AutoCrystal.mc.player);
+            }
+            if (this.swingMode.getValue() == SwingMode.Both) {
                 CrystalAura.mc.player.swingArm(EnumHand.OFF_HAND);
+            } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
+            EntityUtil.swingArmNoPacket(EnumHand.OFF_HAND, (EntityLivingBase)AutoCrystal.mc.player);
             }
             if (this.swingMode.getValue() == SwingMode.Both) {
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
+            } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
+            EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
             }
         }
         if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
@@ -680,6 +690,9 @@ public class CrystalAura
         MainHand,
         OffHand,
         Both,
+        FakeMainHand,
+        FakeOffHand,
+        FakeBoth,
         None;
 
     }

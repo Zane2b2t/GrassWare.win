@@ -4,6 +4,7 @@
   "package": "me.derp.quantum.mixin.mixins",
   "refmap": "mixins.quantum.refmap.json",
   "mixins": [
+    "IEntityLivingBase"
     "MixinBlock",
     "MixinBlockFluidRenderer",
     "MixinBlockModelRenderer",

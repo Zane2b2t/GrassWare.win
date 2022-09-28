@@ -2,6 +2,7 @@ package me.derp.quantum.util;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import me.derp.quantum.Quantum;
+import me.derp.quantum.mixin.mixins.*;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -61,6 +62,18 @@ public class EntityUtil
         }
         if (swingArm) {
             mc.player.swingArm(EnumHand.MAIN_HAND);
+        }
+    }
+
+    public static void swingArmNoPacket(EnumHand hand, EntityLivingBase entity) {
+        ItemStack stack = entity.getHeldItem(hand);
+        if (!stack.isEmpty() && stack.getItem().onEntitySwing(entity, stack)) {
+            return;
+        }
+        if (!entity.isSwingInProgress || entity.swingProgressInt >= ((IEntityLivingBase)entity).getArmSwingAnimationEnd() / 2 || entity.swingProgressInt < 0) {
+            entity.swingProgressInt = -1;
+            entity.isSwingInProgress = true;
+            entity.swingingHand = hand;
         }
     }
 
