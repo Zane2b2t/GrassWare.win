@@ -161,9 +161,6 @@ public class CrystalAura
             (Objects.<Entity>requireNonNull(packet.getEntityFromWorld(mc.world))).setDead();
             mc.world.removeEntityFromWorld(packet.entityId);
         }
-        if (fastercaithink.getValue()) {
-        this.placeCrystal();
-        }
     }
 
     private void rotateTo(Entity entity) {
@@ -215,26 +212,19 @@ public class CrystalAura
                 for (int i = 0; i <= yawSteps.getValue(); i++) {
                     Quantum.rotationManagerNew.setYaw(angle[0] / i);
                     Quantum.rotationManagerNew.setPitch(angle[1] / i);
+                }
             }
         }
     }
 
     @Override
-    public void onUpdate() {
+    public void onTick() {
         if (fullNullCheck()) return;
         // made it apply to offhand :)
         if (fastplace.getValue() && (mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL || mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL)) {
             CrystalAura.mc.rightClickDelayTimer = 0;
         }
         this.onCrystal();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        double damage = this.calculateDamage((double) this.target.getPosition().getX() + 0.5, (double) this.target.getPosition().getY() + 1.0, (double) this.target.getPosition().getZ() + 0.5, this.target);
-        }
-=======
->>>>>>> parent of 7fccb57 (added fastpop to crystalaura and autobuild batch file)
-=======
->>>>>>> parent of 7fccb57 (added fastpop to crystalaura and autobuild batch file)
     }
 
     @Override
@@ -243,7 +233,6 @@ public class CrystalAura
             return this.realTarget.getName();
         }
         return null;
-        }
     }
 
     public void onCrystal() {
@@ -313,20 +302,12 @@ public class CrystalAura
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
             } else if (this.swingMode.getValue() == SwingMode.OffHand) {
                 CrystalAura.mc.player.swingArm(EnumHand.OFF_HAND);
-            } else if (this.swingMode.getValue() == SwingMode.FakeMainHand) {
-            EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
-            } else if (this.swingMode.getValue() == SwingMode.FakeOffHand) {
-            EntityUtil.swingArmNoPacket(EnumHand.OFF_HAND, (EntityLivingBase)AutoCrystal.mc.player);
-            }
-            if (this.swingMode.getValue() == SwingMode.Both) {
+            } else if (this.swingMode.getValue() == SwingMode.Both) {
                 CrystalAura.mc.player.swingArm(EnumHand.OFF_HAND);
-            } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
-            EntityUtil.swingArmNoPacket(EnumHand.OFF_HAND, (EntityLivingBase)AutoCrystal.mc.player);
             }
             if (this.swingMode.getValue() == SwingMode.Both) {
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
-            } else if (this.swingMode.getValue() == SwingMode.FakeBoth) {
-            EntityUtil.swingArmNoPacket(EnumHand.MAIN_HAND, (EntityLivingBase)AutoCrystal.mc.player);
+            }
         }
         if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
             this.placeTimer.reset();
@@ -680,9 +661,6 @@ public class CrystalAura
         MainHand,
         OffHand,
         Both,
-        FakeMainHand,
-        FakeOffHand,
-        FakeBoth,
         None;
 
     }
