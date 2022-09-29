@@ -1,13 +1,13 @@
 package me.derp.quantum..features.modules.movement;
 
-import me.derp.quantum..Quantum;
-import me.derp.quantum..event.events.MoveEvent;
-import me.derp.quantum..event.events.PacketEvent;
-import me.derp.quantum..event.events.UpdateWalkingPlayerEvent;
-import me.derp.quantum..features.modules.Module;
-import me.derp.quantum..features.setting.Setting;
-import me.derp.quantum..util.MovementUtil;
-import me.derp.quantum..util.Timer;
+import me.derp.quantum.Quantum;
+import me.derp.quantum.event.events.MoveEvent;
+import me.derp.quantum.event.events.PacketEvent;
+import me.derp.quantum.event.events.UpdateWalkingPlayerEvent;
+import me.derp.quantum.features.modules.Module;
+import me.derp.quantum.features.setting.Setting;
+import me.derp.quantum.util.MovementUtil;
+import me.derp.quantum.util.Timer;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.MobEffects;
