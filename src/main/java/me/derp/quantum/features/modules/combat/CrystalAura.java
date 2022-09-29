@@ -56,6 +56,7 @@ public class CrystalAura
     public Setting<Float> placeRange = this.register(new Setting<Float>("PlaceRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
     public Setting<Float> placeWallRange = this.register(new Setting<Float>("PlaceWallRange", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(7.0f)));
     public Setting<Boolean> explode = this.register(new Setting<Boolean>("Break", true));
+    public Setting<Boolean> instashit = this.register(new Setting<Boolean>("Instant", true));
     public Setting<FastMode> fastMode = this.register(new Setting<FastMode>("Fast", FastMode.Ignore));
     public Setting<Boolean> packetBreak = this.register(new Setting<Boolean>("PacketBreak", true));
     public Setting<AWMode> awMode = this.register(new Setting<AWMode>("AntiWeakness", AWMode.Normal));
@@ -160,6 +161,13 @@ public class CrystalAura
         if (event.getStage() == 0 && event.getPacket() instanceof CPacketUseEntity && (packet = event.getPacket()).getAction() == CPacketUseEntity.Action.ATTACK && packet.getEntityFromWorld(mc.world) instanceof EntityEnderCrystal && this.fastMode.getValue() == FastMode.Ghost) {
             (Objects.<Entity>requireNonNull(packet.getEntityFromWorld(mc.world))).setDead();
             mc.world.removeEntityFromWorld(packet.entityId);
+        if (this.instashit.getValue()) {
+        if (event.getStage() == 0 && event.getPacket() instanceof CPacketUseEntity && packet.getEntityFromWorld(mc.world) instanceof EntityEnderCrystal) {
+        this.manualBreaker();
+
+
+                }
+            }
         }
     }
 
@@ -225,6 +233,8 @@ public class CrystalAura
             CrystalAura.mc.rightClickDelayTimer = 0;
         }
         this.onCrystal();
+        this.placeCrystal();
+
     }
 
     @Override
@@ -307,8 +317,10 @@ public class CrystalAura
             }
             if (this.swingMode.getValue() == SwingMode.Both) {
                 CrystalAura.mc.player.swingArm(EnumHand.MAIN_HAND);
+                }
             }
         }
+        private void placeCrystal() {
         if (this.placeTimer.passedMs(this.placeDelay.getValue().longValue()) && this.place.getValue().booleanValue()) {
             this.placeTimer.reset();
             double damage = 0.5;
@@ -346,6 +358,7 @@ public class CrystalAura
                 CrystalAura.mc.player.inventory.currentItem = this.hotBarSlot;
             }
             int swordSlot = InventoryUtil.findHotbarBlock(ItemSword.class);
+            int lastSlot = mc.player.inventory.currentItem;
             if (this.awMode.getValue() == AWMode.Normal && mc.player.isPotionActive(MobEffects.WEAKNESS)) {
             mc.player.inventory.currentItem = swordSlot;
                } else {
@@ -384,14 +397,11 @@ public class CrystalAura
     @SubscribeEvent(priority = EventPriority.HIGHEST, receiveCanceled = true)
     public void onPacketReceive(PacketEvent.Receive event) {
         SPacketSpawnObject packet;
-        if (event.getPacket() instanceof SPacketSpawnObject && (packet = event.getPacket()).getType() == 51 && this.predicts.getValue().booleanValue() && this.preditTimer.passedMs(this.attackFactor.getValue().longValue()) && this.predicts.getValue().booleanValue() && this.explode.getValue().booleanValue() && this.packetBreak.getValue().booleanValue() && this.target != null) {
-            if (!this.isPredicting(packet)) {
-                return;
-            }
+        if (event.getPacket() instanceof SPacketSpawnObject && (packet = event.getPacket()).getType() == 51 && this.predicts.getValue() && this.preditTimer.passedMs(this.attackFactor.getValue().longValue()) && this.predicts.getValue() && this.explode.getValue() && this.packetBreak.getValue() && this.target != null) {
             CPacketUseEntity predict = new CPacketUseEntity();
             predict.entityId = packet.getEntityID();
             predict.action = CPacketUseEntity.Action.ATTACK;
-            CrystalAura.mc.player.connection.sendPacket(predict);
+            TooBeeCrystalAura.mc.player.connection.sendPacket(predict);
         }
     }
 
