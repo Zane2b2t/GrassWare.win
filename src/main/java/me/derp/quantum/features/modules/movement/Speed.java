@@ -1,4 +1,4 @@
-package me.derp.quantum.features.modules.movement;
+package me.derp.quantum.features.modules.movement
 
 import me.derp.quantum.Quantum;
 import me.derp.quantum.features.modules.Module;
