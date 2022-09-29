@@ -125,7 +125,7 @@ public class Strafe
             if (this.step.getValue() == 1) {
                 Strafe.mc.player.stepHeight = 0.6f;
             }
-            if (this.limiter2.getValue().booleanValue() && Strafe.mc.player.onGround && Phobos.speedManager.getSpeedKpH() < (double) this.speedLimit2.getValue().floatValue()) {
+            if (this.limiter2.getValue().booleanValue() && Strafe.mc.player.onGround && Quantum.speedManager.getSpeedKpH() < (double) this.speedLimit2.getValue().floatValue()) {
                 this.stage = 2;
             }
             if (this.limiter.getValue().booleanValue() && Strafe.round(Strafe.mc.player.posY - (double) ((int) Strafe.mc.player.posY), 3) == Strafe.round((double) this.setGroundLimit.getValue().intValue() / 1000.0, 3) && (!this.setGroundNoLag.getValue().booleanValue() || EntityUtil.isEntityMoving(Strafe.mc.player))) {
@@ -158,7 +158,7 @@ public class Strafe
                 this.moveSpeed = this.lastDist - difference;
             } else {
                 if (Strafe.mc.world.getCollisionBoxes(Strafe.mc.player, Strafe.mc.player.getEntityBoundingBox().offset(0.0, Strafe.mc.player.motionY, 0.0)).size() > 0 || Strafe.mc.player.collidedVertically && this.stage > 0) {
-                    this.stage = this.bhop2.getValue() != false && Phobos.speedManager.getSpeedKpH() >= (double) this.speedLimit.getValue().floatValue() ? 0 : (Strafe.mc.player.moveForward != 0.0f || Strafe.mc.player.moveStrafing != 0.0f ? 1 : 0);
+                    this.stage = this.bhop2.getValue() != false && Quantum.speedManager.getSpeedKpH() >= (double) this.speedLimit.getValue().floatValue() ? 0 : (Strafe.mc.player.moveForward != 0.0f || Strafe.mc.player.moveStrafing != 0.0f ? 1 : 0);
                 }
                 this.moveSpeed = this.lastDist - this.lastDist / (double) this.dFactor.getValue().intValue();
             }
@@ -229,7 +229,7 @@ public class Strafe
             }
             default: {
                 if (Strafe.mc.world.getCollisionBoxes(Strafe.mc.player, Strafe.mc.player.getEntityBoundingBox().offset(0.0, Strafe.mc.player.motionY, 0.0)).size() > 0 || Strafe.mc.player.collidedVertically && this.stage > 0) {
-                    this.stage = this.bhop2.getValue() != false && Phobos.speedManager.getSpeedKpH() >= (double) this.speedLimit.getValue().floatValue() ? 0 : (Strafe.mc.player.moveForward != 0.0f || Strafe.mc.player.moveStrafing != 0.0f ? 1 : 0);
+                    this.stage = this.bhop2.getValue() != false && Quantum.speedManager.getSpeedKpH() >= (double) this.speedLimit.getValue().floatValue() ? 0 : (Strafe.mc.player.moveForward != 0.0f || Strafe.mc.player.moveStrafing != 0.0f ? 1 : 0);
                 }
                 this.moveSpeed = this.lastDist - this.lastDist / 159.0;
             }
@@ -260,7 +260,7 @@ public class Strafe
     }
 
     private boolean shouldReturn() {
-        return Phobos.moduleManager.isModuleEnabled(Freecam.class) || Phobos.moduleManager.isModuleEnabled(Phase.class) || Phobos.moduleManager.isModuleEnabled(ElytraFlight.class) || Phobos.moduleManager.isModuleEnabled(Flight.class);
+        return Quantum.moduleManager.isModuleEnabled(Phase.class) || Quantum.moduleManager.isModuleEnabled(ElytraFlight.class) || Quantum.moduleManager.isModuleEnabled(Flight.class);
     }
 
     @SubscribeEvent
