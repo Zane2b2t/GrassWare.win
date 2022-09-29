@@ -5,31 +5,31 @@ import net.minecraft.network.Packet;
 import net.minecraftforge.fml.common.eventhandler.Cancelable;
 
 public class PacketEvent
-        extends EventStage {
+extends EventStage {
     private final Packet<?> packet;
 
-    public PacketEvent(int stage, Packet<?> packet) {
-        super(stage);
+    public PacketEvent(int n, Packet<?> packet) {
+        super(n);
         this.packet = packet;
     }
 
     public <T extends Packet<?>> T getPacket() {
-        return (T) this.packet;
-    }
-
-    @Cancelable
-    public static class Send
-            extends PacketEvent {
-        public Send(int stage, Packet<?> packet) {
-            super(stage, packet);
-        }
+        return (T)this.packet;
     }
 
     @Cancelable
     public static class Receive
-            extends PacketEvent {
-        public Receive(int stage, Packet<?> packet) {
-            super(stage, packet);
+    extends PacketEvent {
+        public Receive(int n, Packet<?> packet) {
+            super(n, packet);
+        }
+    }
+
+    @Cancelable
+    public static class Send
+    extends PacketEvent {
+        public Send(int n, Packet<?> packet) {
+            super(n, packet);
         }
     }
 }
