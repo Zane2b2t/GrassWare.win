@@ -1,11 +1,11 @@
 package me.derp.quantum.features.modules.movement;
 
-import me.derp.quantum.Quantum;
 import me.derp.quantum.event.events.MoveEvent;
 import me.derp.quantum.event.events.PacketEvent;
 import me.derp.quantum.event.events.UpdateWalkingPlayerEvent;
 import me.derp.quantum.features.modules.Module;
 import me.derp.quantum.features.setting.Setting;
+import me.derp.quantum.features.modules.movement.ElytraFlight;
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.Timer;
 import net.minecraft.entity.Entity;
@@ -260,7 +260,7 @@ public class Strafe
     }
 
     private boolean shouldReturn() {
-        return Quantum.moduleManager.isModuleEnabled(ElytraFlight.class);
+        return ElytraFlight.getInstance().isOn();
     }
 
     @SubscribeEvent
