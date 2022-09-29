@@ -2,9 +2,9 @@
 
 <p align="center">
   <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://img.shields.io/badge/Minecraft Version-1.12.2-brightgreen.svg" alt="Minecraft"/></a>
+  <a href="https://github.com/Zane2b2t/quantum-Continued-Plus/issues"><img src="https://img.shields.io/github/issues/Rat2b2t/quantum-Continued-Plus" alt="Issues"/></a>
   <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://img.shields.io/github/languages/code-size/Zane2b2t/quantum-Continued-Plus" alt="Code size"/></a>
   <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://img.shields.io/github/repo-size/Zane2b2t/quantum-Continued-Plus" alt="Github repo size"/></a>
-  <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://tokei.rs/b1/github/Zane2b2t/quantum-Continued-Plus?category=code" alt="Lines of code"/></a>
 </p>
 
 <p align="center">
