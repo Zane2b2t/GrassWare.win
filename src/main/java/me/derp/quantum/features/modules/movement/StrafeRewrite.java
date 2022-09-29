@@ -89,10 +89,10 @@ public class StrafeRewrite extends Module
             return;
         }
         if (this.mode.getValue() == Mode.STRAFE || (this.mode.getValue() == Mode.LOWHOP && this.useTimer.getValue())) {
-            JorgitoHack.timerManager.setTimer(1.08f + 0.008f * this.timerFactor.getValue());
+            Quantum.timerManager.setTimer(1.08f + 0.008f * this.timerFactor.getValue());
         }
         else if (this.mode.getValue() != Mode.STRAFESTRICT) {
-            JorgitoHack.timerManager.reset();
+            Quantum.timerManager.reset();
         }
     }
 
@@ -116,7 +116,7 @@ public class StrafeRewrite extends Module
     @SubscribeEvent
     public void onPacketReceive(final PacketEvent.Receive event) {
         if (event.getPacket() instanceof SPacketPlayerPosLook) {
-            JorgitoHack.timerManager.reset();
+            Quantum.timerManager.reset();
             this.currentSpeed = 0.0;
             this.state = 4;
             this.aacSpeed = 0.2873;
@@ -212,10 +212,10 @@ public class StrafeRewrite extends Module
                 ++this.aacCounter;
                 this.aacCounter %= 5;
                 if (this.aacCounter != 0) {
-                    JorgitoHack.timerManager.reset();
+                    Quantum.timerManager.reset();
                 }
                 else if (MovementUtil.isPlayerMoving()) {
-                    JorgitoHack.timerManager.setTimer(1.3f);
+                    Quantum.timerManager.setTimer(1.3f);
                     final EntityPlayerSP player = StrafeRewrite.mc.player;
                     player.motionX *= 1.0199999809265137;
                     final EntityPlayerSP player2 = StrafeRewrite.mc.player;
@@ -384,7 +384,7 @@ public class StrafeRewrite extends Module
         if (StrafeRewrite.mc.player == null || StrafeRewrite.mc.world == null) {
             return;
         }
-        JorgitoHack.timerManager.reset();
+        Quantum.timerManager.reset();
     }
 
     private double getBaseMotionSpeed() {
