@@ -297,7 +297,7 @@ public class StrafeRewrite extends Module
                 break;
             }
             case LOWHOP: {
-                if (!this.setbackTimer.hasPassed(100.0)) {
+                if (this.setbackTimer.hasPassed(100.0)) {
                     return;
                 }
                 double jumpSpeed = 0.0;
