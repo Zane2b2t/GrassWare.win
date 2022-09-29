@@ -260,7 +260,7 @@ public class Strafe
     }
 
     private boolean shouldReturn() {
-        return Quantum.moduleManager.isModuleEnabled(Phase.class) || Quantum.moduleManager.isModuleEnabled(ElytraFlight.class) || Quantum.moduleManager.isModuleEnabled(Flight.class);
+        return Quantum.moduleManager.isModuleEnabled(ElytraFlight.class);
     }
 
     @SubscribeEvent
