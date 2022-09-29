@@ -1,6 +1,6 @@
 package me.derp.quantum..features.modules.movement;
 
-import me.derp.quantum..JorgitoHack;
+import me.derp.quantum..Quantum;
 import me.derp.quantum..event.events.MoveEvent;
 import me.derp.quantum..event.events.PacketEvent;
 import me.derp.quantum..event.events.UpdateWalkingPlayerEvent;
