@@ -44,7 +44,7 @@ public class Velocity
 
     @Override
     public void onUpdate() {
-        if (IceSpeed.getINSTANCE().isOff() && this.ice.getValue().booleanValue()) {
+        if (this.ice.getValue().booleanValue()) {
             Blocks.ICE.slipperiness = 0.6f;
             Blocks.PACKED_ICE.slipperiness = 0.6f;
             Blocks.FROSTED_ICE.slipperiness = 0.6f;
@@ -53,11 +53,9 @@ public class Velocity
 
     @Override
     public void onDisable() {
-        if (IceSpeed.getINSTANCE().isOff()) {
             Blocks.ICE.slipperiness = 0.98f;
             Blocks.PACKED_ICE.slipperiness = 0.98f;
             Blocks.FROSTED_ICE.slipperiness = 0.98f;
-        }
     }
 
     @SubscribeEvent
