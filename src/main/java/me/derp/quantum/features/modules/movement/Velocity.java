@@ -1,9 +1,9 @@
-package me.derp.quantum..features.modules.movement;
+package me.derp.quantum.features.modules.movement;
 
-import me.derp.quantum..event.events.PacketEvent;
-import me.derp.quantum..event.events.PushEvent;
-import me.derp.quantum..features.modules.Module;
-import me.derp.quantum..features.setting.Setting;
+import me.derp.quantum.event.events.PacketEvent;
+import me.derp.quantum.event.events.PushEvent;
+import me.derp.quantum.features.modules.Module;
+import me.derp.quantum.features.setting.Setting;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityFishHook;
 import net.minecraft.init.Blocks;
