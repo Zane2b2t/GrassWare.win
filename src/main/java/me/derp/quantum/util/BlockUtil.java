@@ -99,6 +99,10 @@ public class BlockUtil
         return positions;
     }
 
+    public static boolean isAir(BlockPos blockPos) {
+        return BlockUtil.mc.world.getBlockState(blockPos).getBlock() == Blocks.AIR;
+    }
+
     public static List<EnumFacing> getPossibleSides(BlockPos pos) {
         ArrayList<EnumFacing> facings = new ArrayList<>();
         for (EnumFacing side : EnumFacing.values()) {

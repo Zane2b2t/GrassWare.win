@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import me.derp.quantum.event.events.Render2DEvent;
 import me.derp.quantum.features.modules.Module;
+import me.derp.quantum.features.setting.Setting;
 import me.derp.quantum.util.Timer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -17,8 +18,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class TooBeeQueue extends Module {
+    public Setting<QueueMode> queueMode = this.register(new Setting<QueueMode>("Mode", QueueMode.Both));
+
     public TooBeeQueue() {
-        super("2b2t Queue", "give you 2b2t queue as hud", Category.RENDER, true, false, false);
+        super("2b2tQueue", "give you 2b2t queue as hud", Category.RENDER, true, false, false);
     }
 
     Timer timer = new Timer();
@@ -51,7 +54,22 @@ public class TooBeeQueue extends Module {
     @SubscribeEvent
     public void onRender2D(Render2DEvent event) {
         if (fullNullCheck()) return;
+        if (this.queueMode.getValue() == QueueMode.Regular) {
+        mc.fontRenderer.drawString("Regular Queue: " + ChatFormatting.BOLD + queueStatus[0], 10, 10, new Color(255, 255, 255).getRGB());
+        }
+        if (this.queueMode.getValue() == QueueMode.Priority) {
+        mc.fontRenderer.drawString("Priority Queue: " + ChatFormatting.BOLD + queueStatus[1], 10, 10 + mc.fontRenderer.FONT_HEIGHT + 2, new Color(255, 255, 255).getRGB());
+        }
+        if (this.queueMode.getValue() == QueueMode.Both) {
         mc.fontRenderer.drawString("Regular Queue: " + ChatFormatting.BOLD + queueStatus[0], 10, 10, new Color(255, 255, 255).getRGB());
         mc.fontRenderer.drawString("Priority Queue: " + ChatFormatting.BOLD + queueStatus[1], 10, 10 + mc.fontRenderer.FONT_HEIGHT + 2, new Color(255, 255, 255).getRGB());
+        }
+    }
+
+    public static enum 	QueueMode {
+        Regular,
+        Priority,
+        Both;
+
     }
 }
