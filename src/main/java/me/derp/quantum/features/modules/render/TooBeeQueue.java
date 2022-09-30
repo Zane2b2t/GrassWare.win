@@ -58,7 +58,7 @@ public class TooBeeQueue extends Module {
         mc.fontRenderer.drawString("Regular Queue: " + ChatFormatting.BOLD + queueStatus[0], 10, 10, new Color(255, 255, 255).getRGB());
         }
         if (this.queueMode.getValue() == QueueMode.Priority) {
-        mc.fontRenderer.drawString("Priority Queue: " + ChatFormatting.BOLD + queueStatus[1], 10, 10 + mc.fontRenderer.FONT_HEIGHT + 2, new Color(255, 255, 255).getRGB());
+        mc.fontRenderer.drawString("Priority Queue: " + ChatFormatting.BOLD + queueStatus[1], 10, 10, new Color(255, 255, 255).getRGB());
         }
         if (this.queueMode.getValue() == QueueMode.Both) {
         mc.fontRenderer.drawString("Regular Queue: " + ChatFormatting.BOLD + queueStatus[0], 10, 10, new Color(255, 255, 255).getRGB());
