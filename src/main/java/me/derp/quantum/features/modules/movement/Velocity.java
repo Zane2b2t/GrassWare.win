@@ -11,7 +11,6 @@ import net.minecraft.network.play.server.SPacketEntityStatus;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Velocity
         extends Module {
@@ -44,7 +43,7 @@ public class Velocity
 
     @Override
     public void onUpdate() {
-        if (this.ice.getValue().booleanValue()) {
+      if (this.ice.getValue().booleanValue()) {
             Blocks.ICE.slipperiness = 0.6f;
             Blocks.PACKED_ICE.slipperiness = 0.6f;
             Blocks.FROSTED_ICE.slipperiness = 0.6f;
@@ -53,9 +52,11 @@ public class Velocity
 
     @Override
     public void onDisable() {
-            Blocks.ICE.slipperiness = 0.98f;
+      if (IceSpeed.getINSTANCE().isOff()) {
+          
             Blocks.PACKED_ICE.slipperiness = 0.98f;
             Blocks.FROSTED_ICE.slipperiness = 0.98f;
+      
     }
 
     @SubscribeEvent
@@ -80,7 +81,7 @@ public class Velocity
                 }
             }
             if (this.explosions.getValue().booleanValue() && event.getPacket() instanceof SPacketExplosion) {
-                //velocity = (SPacketExplosion)event.getPacket();
+                velocity = (SPacketExplosion)event.getPacket();
                 SPacketExplosion velocity_ = event.getPacket();
                 velocity_.motionX *= this.horizontal.getValue().floatValue();
                 velocity_.motionY *= this.vertical.getValue().floatValue();
