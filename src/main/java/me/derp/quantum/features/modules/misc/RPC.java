@@ -11,7 +11,7 @@ public class RPC
     public Setting<String> state = this.register(new Setting<>("State", "Quantum++ v0.6.2", "Sets the state of the DiscordRPC."));
     public Setting<Boolean> showIP = this.register(new Setting<>("ShowIP", Boolean.TRUE, "Shows the server IP in your discord presence."));
     public Setting<Boolean> catMode = this.register(new Setting<>("SnineMode", false, "cute cat supremacy"));
-    public Setting<Boolean> catMode = this.register(new Setting<>("Sync", false, "Fake Sync RPC"));
+
     public RPC() {
         super("RPC", "Discord rich presence", Module.Category.MISC, false, false, false);
         INSTANCE = this;
