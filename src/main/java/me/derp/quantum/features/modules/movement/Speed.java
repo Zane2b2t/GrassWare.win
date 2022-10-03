@@ -55,7 +55,7 @@ public class Speed extends Module {
     }
 
     private boolean shouldReturn() {
-        return Phobos.moduleManager.isModuleEnabled("Freecam") || Phobos.moduleManager.isModuleEnabled("Phase") || Phobos.moduleManager.isModuleEnabled("ElytraFlight") || Phobos.moduleManager.isModuleEnabled("Strafe") || Phobos.moduleManager.isModuleEnabled("Flight");
+        return Quantum.moduleManager.isModuleEnabled("Freecam") || Quantum.moduleManager.isModuleEnabled("Phase") || Quantum.moduleManager.isModuleEnabled("ElytraFlight") || Quantum.moduleManager.isModuleEnabled("Strafe") || Quantum.moduleManager.isModuleEnabled("Flight");
     }
 
     @Override
@@ -120,7 +120,7 @@ public class Speed extends Module {
                     move = 0.27895f;
                 }
                 if (useTimer.getValue()) {
-                    Phobos.timerManager.setTimer(1.0f);
+                    Quantum.timerManager.setTimer(1.0f);
                 }
             }
             if (mc.player.posY == startY) {
@@ -146,9 +146,9 @@ public class Speed extends Module {
                 }
                 if (useTimer.getValue()) {
                     if (rnd) {
-                        Phobos.timerManager.setTimer(1.3f);
+                        Quantum.timerManager.setTimer(1.3f);
                     } else {
-                        Phobos.timerManager.setTimer(1.0f);
+                        Quantum.timerManager.setTimer(1.0f);
                     }
                 }
             }
@@ -235,7 +235,7 @@ public class Speed extends Module {
                     move = 0.545f;
                 }
                 if (useTimer.getValue()) {
-                    Phobos.timerManager.setTimer(1.0f);
+                    Quantum.timerManager.setTimer(1.0f);
                 }
             }
             if (mc.player.posY == startY) {
@@ -294,9 +294,9 @@ public class Speed extends Module {
                 }
                 if (useTimer.getValue()) {
                     if (rnd) {
-                        Phobos.timerManager.setTimer(1.3f);
+                        Quantum.timerManager.setTimer(1.3f);
                     } else {
-                        Phobos.timerManager.setTimer(1.0f);
+                        Quantum.timerManager.setTimer(1.0f);
                     }
                 }
             }
@@ -384,7 +384,7 @@ public class Speed extends Module {
                     move = 0.545f;
                 }
                 if (useTimer.getValue()) {
-                    Phobos.timerManager.setTimer(1.0f);
+                    Quantum.timerManager.setTimer(1.0f);
                 }
             }
             if (mc.player.posY == startY) {
@@ -443,9 +443,9 @@ public class Speed extends Module {
                 }
                 if (useTimer.getValue()) {
                     if (rnd) {
-                        Phobos.timerManager.setTimer(1.3f);
+                        Quantum.timerManager.setTimer(1.3f);
                     } else {
-                        Phobos.timerManager.setTimer(1.0f);
+                        Quantum.timerManager.setTimer(1.0f);
                     }
                 }
             }
@@ -468,7 +468,7 @@ public class Speed extends Module {
         if(mode.getValue() == Mode.ONGROUND || mode.getValue() == Mode.BOOST) {
             mc.player.motionY = -0.1;
         }
-        Phobos.timerManager.setTimer(1.0f);
+        Quantum.timerManager.setTimer(1.0f);
         highChainVal = 0.0;
         lowChainVal = 0.0;
         antiShake = false;
