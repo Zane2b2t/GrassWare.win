@@ -56,6 +56,10 @@ public class Velocity
             Blocks.ICE.slipperiness = 0.98f;
             Blocks.PACKED_ICE.slipperiness = 0.98f;
             Blocks.FROSTED_ICE.slipperiness = 0.98f;
+<<<<<<< HEAD
+=======
+      }
+>>>>>>> parent of 3a35ce6 (Update Velocity.java)
     }
 
     @SubscribeEvent
