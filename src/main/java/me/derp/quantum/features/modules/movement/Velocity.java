@@ -50,15 +50,6 @@ public class Velocity extends Module {
         }
     }
 
-    @Override
-    public void onDisable() {
-        if(IceSpeed.getINSTANCE().isOff()) {
-            Blocks.ICE.slipperiness = 0.98f;
-            Blocks.PACKED_ICE.slipperiness = 0.98f;
-            Blocks.FROSTED_ICE.slipperiness = 0.98f;
-        }
-    }
-
     @SubscribeEvent
     public void onPacketReceived(PacketEvent.Receive event) {
         if(event.getStage() == 0 && mc.player != null) {
