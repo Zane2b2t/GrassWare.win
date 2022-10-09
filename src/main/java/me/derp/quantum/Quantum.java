@@ -9,11 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
-@Mod(modid = "quantum", name = "Quantum", version = "0.6.1")
+@Mod(modid = "quantum", name = "Quantum", version = "0.6.2")
 public class Quantum {
     public static final String MODID = "quantum";
     public static final String MODNAME = "Quantum";
-    public static final String MODVER = "0.6.1";
+    public static final String MODVER = "0.6.2";
     public static final Logger LOGGER = LogManager.getLogger("Quantum");
     public static TotemPopManager totemPopManager;
     public static TimerManager timerManager;
