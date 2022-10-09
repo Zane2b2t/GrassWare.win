@@ -24,7 +24,7 @@ import me.derp.quantum.event.events.PacketEvent;
 import me.derp.quantum.event.events.Render3DEvent;
 import me.derp.quantum.event.events.UpdateWalkingPlayerEvent;
 import me.derp.quantum.features.command.Command;
-import me.derp.quantum.features.gui.QuantumGui;
+import me.derp.quantum.features.gui.OyVeyGui;
 import me.derp.quantum.features.modules.Module;
 import me.derp.quantum.features.modules.combat.AutoTrap;
 import me.derp.quantum.features.modules.combat.Offhand;
