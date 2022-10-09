@@ -32,7 +32,7 @@ import me.derp.quantum.features.modules.combat.Surround;
 import me.derp.quantum.features.modules.misc.NoSoundLag;
 import me.derp.quantum.features.setting.Bind;
 import me.derp.quantum.features.setting.Setting;
-import me.derp.quantum.util.BlockUtil2;
+import me.derp.quantum.util.BlockUtil22;
 import me.derp.quantum.util.DamageUtil;
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.InventoryUtil;
@@ -365,7 +365,7 @@ extends Module {
             EntityEnderCrystal crystal = (EntityEnderCrystal)packet.getEntityFromWorld((World)AutoCrystal.mc.world);
             if (this.antiBlock.getValue().booleanValue() && EntityUtil.isCrystalAtFeet(crystal, this.range.getValue().floatValue()) && pos != null) {
                 this.rotateToPos(pos);
-                BlockUtil.placeCrystalOnBlock(this.placePos, this.offHand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing.getValue(), this.exactHand.getValue(), this.shouldSilent);
+                BlockUtil2.placeCrystalOnBlock(this.placePos, this.offHand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing.getValue(), this.exactHand.getValue(), this.shouldSilent);
             }
         }
     }
@@ -896,7 +896,7 @@ extends Module {
                                 if (this.eventMode.getValue() == 2 && this.threadMode.getValue() == ThreadMode.NONE && this.rotateFirst.getValue().booleanValue() && this.rotate.getValue() != Rotate.OFF) {
                                     this.placeInfo = new PlaceInfo(this.placePos, this.offHand, this.placeSwing.getValue(), this.exactHand.getValue(), this.shouldSilent);
                                 } else {
-                                    BlockUtil.placeCrystalOnBlock(this.placePos, this.offHand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing.getValue(), this.exactHand.getValue(), this.shouldSilent);
+                                    BlockUtil2.placeCrystalOnBlock(this.placePos, this.offHand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing.getValue(), this.exactHand.getValue(), this.shouldSilent);
                                 }
                             }
                             this.lastPos = this.placePos;
@@ -991,8 +991,8 @@ extends Module {
             state = AutoCrystal.mc.world.getBlockState(playerPos);
             AutoCrystal.mc.world.setBlockToAir(playerPos);
         }
-        block0: for (BlockPos pos : BlockUtil.possiblePlacePositions(this.placeRange.getValue().floatValue(), this.antiSurround.getValue(), this.oneDot15.getValue(), this.cc.getValue())) {
-            if (!BlockUtil.rayTracePlaceCheck(pos, (this.raytrace.getValue() == Raytrace.PLACE || this.raytrace.getValue() == Raytrace.FULL) && AutoCrystal.mc.player.getDistanceSq(pos) > MathUtil.square(this.placetrace.getValue().floatValue()), 1.0f)) continue;
+        block0: for (BlockPos pos : BlockUtil2.possiblePlacePositions(this.placeRange.getValue().floatValue(), this.antiSurround.getValue(), this.oneDot15.getValue(), this.cc.getValue())) {
+            if (!BlockUtil2.rayTracePlaceCheck(pos, (this.raytrace.getValue() == Raytrace.PLACE || this.raytrace.getValue() == Raytrace.FULL) && AutoCrystal.mc.player.getDistanceSq(pos) > MathUtil.square(this.placetrace.getValue().floatValue()), 1.0f)) continue;
             float selfDamage = -1.0f;
             if (DamageUtil.canTakeDamage(this.suicide.getValue())) {
                 selfDamage = DamageUtil.calculateDamage(pos, (Entity)AutoCrystal.mc.player);
@@ -1375,7 +1375,7 @@ extends Module {
         }
 
         public void runPlace() {
-            BlockUtil.placeCrystalOnBlock(this.pos, this.offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing, this.exactHand, this.silent);
+            BlockUtil2.placeCrystalOnBlock(this.pos, this.offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, this.placeSwing, this.exactHand, this.silent);
         }
     }
 
