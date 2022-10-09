@@ -32,7 +32,7 @@ import me.derp.quantum.features.modules.combat.Surround;
 import me.derp.quantum.features.modules.misc.NoSoundLag;
 import me.derp.quantum.features.setting.Bind;
 import me.derp.quantum.features.setting.Setting;
-import me.derp.quantum.util.BlockUtil;
+import me.derp.quantum.util.BlockUtil2;
 import me.derp.quantum.util.DamageUtil;
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.InventoryUtil;
