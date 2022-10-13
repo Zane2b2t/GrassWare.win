@@ -332,7 +332,7 @@ implements Util {
 
     public static List<BlockPos> possiblePlacePositions(float placeRange, boolean specialEntityCheck, boolean oneDot15, boolean cc) {
         NonNullList positions = NonNullList.create();
-        positions.addAll((Collection)BlockUtil22.getSphere(EntityUtil.getPlayerPos((EntityPlayer)BlockUtil2.mc.player), placeRange, (int)placeRange, false, true, 0).stream().filter(pos -> BlockUtil2.canPlaceCrystal(pos, specialEntityCheck, oneDot15, cc)).collect(Collectors.toList()));
+        positions.addAll((Collection)BlockUtil2.getSphere(EntityUtil.getPlayerPos((EntityPlayer)BlockUtil2.mc.player), placeRange, (int)placeRange, false, true, 0).stream().filter(pos -> BlockUtil2.canPlaceCrystal(pos, specialEntityCheck, oneDot15, cc)).collect(Collectors.toList()));
         return positions;
     }
 
