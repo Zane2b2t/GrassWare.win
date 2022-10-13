@@ -23,9 +23,6 @@ class Management
     public Setting < Integer > textRadarUpdates = this.register ( new Setting < Integer > ( "TRUpdates" , 500 , 0 , 1000 ) );
     public Setting < Integer > respondTime = this.register ( new Setting < Integer > ( "SeverTime" , 500 , 0 , 1000 ) );
     public Setting < Integer > moduleListUpdates = this.register ( new Setting < Integer > ( "ALUpdates" , 1000 , 0 , 1000 ) );
-    public Setting < Float > holeRange = this.register ( new Setting < Float > ( "HoleRange" , 6.0f , 1.0f , 256.0f ) );
-    public Setting < Integer > holeUpdates = this.register ( new Setting < Integer > ( "HoleUpdates" , 100 , 0 , 1000 ) );
-    public Setting < Integer > holeSync = this.register ( new Setting < Integer > ( "HoleSync" , 10000 , 1 , 10000 ) );
     public Setting < Boolean > safety = this.register ( new Setting < Boolean > ( "SafetyPlayer" , false ) );
     public Setting < Integer > safetyCheck = this.register ( new Setting < Integer > ( "SafetyCheck" , 50 , 1 , 150 ) );
     public Setting < ThreadMode > holeThread = this.register ( new Setting < ThreadMode > ( "HoleThread" , ThreadMode.WHILE ) );
@@ -60,22 +57,6 @@ class Management
     public
     void onLoad ( ) {
         Quantum.commandManager.setClientMessage ( this.getCommandMessage ( ) );
-    }
-
-    @SubscribeEvent
-    public
-    void onSettingChange ( ClientEvent event ) {
-        if ( event.getStage ( ) == 2 ) {
-            if ( this.oneChunk.getPlannedValue ( ) ) {
-                Management.mc.gameSettings.renderDistanceChunks = 1;
-            }
-            if ( event.getSetting ( ) != null && this.equals ( event.getSetting ( ).getFeature ( ) ) ) {
-                if ( event.getSetting ( ).equals ( this.holeThread ) ) {
-                    Quantum.HoleManager.settingChanged ( );
-                }
-                Quantum.commandManager.setClientMessage ( this.getCommandMessage ( ) );
-            }
-        }
     }
 
     public
