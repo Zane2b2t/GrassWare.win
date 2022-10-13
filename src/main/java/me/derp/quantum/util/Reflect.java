@@ -1,5 +1,7 @@
 package me.derp.quantum.util;
 
+import sun.net.www.protocol.file.FileURLConnection;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -13,6 +15,18 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 // code credit: madmeg/wp3
 public class Reflect implements Util{
+    /**
+     * Private helper method
+     *
+     * @param directory
+     *            The directory to start with
+     * @param pckgname
+     *            The package name to search for. Will be needed for getting the
+     *            Class object.
+     * @param classes
+     *            if a file isn't loaded but still is in the directory
+     * @throws ClassNotFoundException
+     */
     private static void checkDirectory( File directory,  String pckgname,
                                         ArrayList<Class<?>> classes) throws ClassNotFoundException {
         File tmpDirectory;
@@ -68,14 +82,23 @@ public class Reflect implements Util{
                     try {
                         classes.add(Class.forName(name));
                     } catch (NoClassDefFoundError reee) {
-                       
+                        //It wont add the HoleBlink module now cus no baritone was found
                     }
                 }
             }
         }
     }
 
-   
+    /**
+     * Attempts to list all the classes in the specified package as determined
+     * by the context class loader
+     *
+     * @param pckgname
+     *            the package name to search
+     * @return a list of classes that exist within that package
+     * @throws ClassNotFoundException
+     *             if something went wrong
+     */
     public static ArrayList<Class<?>> getClassesForPackage( String pckgname)
             throws ClassNotFoundException {
         final ArrayList<Class<?>> classes = new ArrayList<Class<?>>();
