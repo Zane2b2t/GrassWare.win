@@ -1,8 +1,16 @@
 package me.derp.quantum.manager;
 
 
+import me.derp.quantum.Quantum;
+import me.derp.quantum.event.events.ThreadEvent;
+import me.derp.quantum.features.modules.combat.TooBeeCrystalAura;
+import me.derp.quantum.util.Multithread;
+import net.minecraftforge.common.MinecraftForge;
+
 import java.util.ArrayDeque;
 import java.util.Queue;
+
+import static me.derp.quantum.features.Feature.nullCheck;
 
 public class ThreadManager {
 
