@@ -36,7 +36,6 @@ public class Quantum {
     public static EventManager eventManager;
     public static TextManager textManager;
     public static RotationManager2 rotationManagerNew;
-    public static ThreadManager threadManager;
     @Mod.Instance
     public static Quantum INSTANCE;
     private static boolean unloaded;
@@ -71,7 +70,6 @@ public class Quantum {
         configManager = new ConfigManager();
         holeManager = new HoleManager();
         rotationManagerNew = new RotationManager2();
-        threadManager = new ThreadManager();
         LOGGER.info("Managers loaded.");
         moduleManager.init();
         LOGGER.info("Modules loaded.");
