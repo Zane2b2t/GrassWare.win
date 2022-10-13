@@ -22,13 +22,11 @@ public class Quantum {
     public static ModuleManager moduleManager;
     public static PacketManager packetManager;
     public static ColorManager colorManager;
-    public static HoleManager holeManager;
     public static InventoryManager inventoryManager;
     public static PotionManager potionManager;
     public static RotationManager rotationManager;
     public static PositionManager positionManager;
     public static SpeedManager speedManager;
-    public static SafetyManager safetyManager;
     public static ReloadManager reloadManager;
     public static FileManager fileManager;
     public static ConfigManager configManager;
@@ -68,7 +66,6 @@ public class Quantum {
         colorManager = new ColorManager();
         positionManager = new PositionManager();
         configManager = new ConfigManager();
-        holeManager = new HoleManager();
         rotationManagerNew = new RotationManager2();
         LOGGER.info("Managers loaded.");
         moduleManager.init();
@@ -95,7 +92,6 @@ public class Quantum {
         eventManager = null;
         friendManager = null;
         speedManager = null;
-        holeManager = null;
         positionManager = null;
         rotationManager = null;
         configManager = null;
@@ -108,7 +104,6 @@ public class Quantum {
         moduleManager = null;
         rotationManagerNew = null;
         textManager = null;
-        threadManager = null;
         LOGGER.info("Quantum unloaded!\n");
     }
 
