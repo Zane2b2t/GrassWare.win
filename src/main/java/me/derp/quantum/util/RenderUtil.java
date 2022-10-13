@@ -9,6 +9,11 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Objects;
 import me.derp.quantum.Quantum;
+import me.derp.quantum.features.modules.player.PacketMine;
+import me.derp.quantum.util.ColorUtil;
+import me.derp.quantum.util.EntityUtil;
+import me.derp.quantum.util.GLUProjection;
+import me.derp.quantum.util.Util;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -78,6 +83,30 @@ implements Util {
             GL11.glHint((int)3154, (int)4354);
             GL11.glLineWidth((float)f);
             double d8 = RenderUtil.mc.playerController.curBlockDamageMP;
+            float f2 = (float)Speedmine.getInstance().timer.getPassedTimeMs() / 1000.0f / (Speedmine.getInstance().breakTime * Quantum.serverManager.getTpsFactor());
+            f2 = Math.min(f2, 1.0f);
+            if (bl3) {
+                d6 = axisAlignedBB.minX + 0.5 - (double)(f2 / 2.0f);
+                d5 = axisAlignedBB.minY + 0.5 - (double)(f2 / 2.0f);
+                d4 = axisAlignedBB.minZ + 0.5 - (double)(f2 / 2.0f);
+                d3 = axisAlignedBB.maxX - 0.5 + (double)(f2 / 2.0f);
+                d2 = axisAlignedBB.maxY - 0.5 + (double)(f2 / 2.0f);
+                d = axisAlignedBB.maxZ - 0.5 + (double)(f2 / 2.0f);
+            } else {
+                d6 = axisAlignedBB.minX + 0.5 - d8 / 2.0;
+                d5 = axisAlignedBB.minY + 0.5 - d8 / 2.0;
+                d4 = axisAlignedBB.minZ + 0.5 - d8 / 2.0;
+                d3 = axisAlignedBB.maxX - 0.5 + d8 / 2.0;
+                d2 = axisAlignedBB.maxY - 0.5 + d8 / 2.0;
+                d = axisAlignedBB.maxZ - 0.5 + d8 / 2.0;
+            }
+            AxisAlignedBB axisAlignedBB2 = new AxisAlignedBB(d6, d5, d4, d3, d2, d);
+            if (bl2) {
+                RenderUtil.drawFilledBox(axisAlignedBB2, new Color((float)color.getRed() / 255.0f, (float)color.getGreen() / 255.0f, (float)color.getBlue() / 255.0f, (float)n / 255.0f).getRGB());
+            }
+            if (bl) {
+                RenderUtil.drawBlockOutline(axisAlignedBB2, new Color((float)color.getRed() / 255.0f, (float)color.getGreen() / 255.0f, (float)color.getBlue() / 255.0f, 1.0f), Speedmine.getInstance().lineWidth.getValue().floatValue());
+            }
             GL11.glDisable((int)2848);
             GlStateManager.depthMask((boolean)true);
             GlStateManager.enableDepth();
@@ -793,6 +822,81 @@ implements Util {
     public static void drawSexyBoxQuantumIsRetardedFuckYouESP(AxisAlignedBB a, Color boxColor, Color outlineColor, float lineWidth, boolean outline, boolean box, boolean colorSync, float alpha, float scale, float slab) {
         double f = 0.5 * (double)(1.0f - scale);
         AxisAlignedBB bb = RenderUtil.interpolateAxis(new AxisAlignedBB(a.minX + f, a.minY + f + (double)(1.0f - slab), a.minZ + f, a.maxX - f, a.maxY - f, a.maxZ - f));
+        float rB = (float)boxColor.getRed() / 255.0f;
+        float gB = (float)boxColor.getGreen() / 255.0f;
+        float bB = (float)boxColor.getBlue() / 255.0f;
+        float aB = (float)boxColor.getAlpha() / 255.0f;
+        float rO = (float)outlineColor.getRed() / 255.0f;
+        float gO = (float)outlineColor.getGreen() / 255.0f;
+        float bO = (float)outlineColor.getBlue() / 255.0f;
+        float aO = (float)outlineColor.getAlpha() / 255.0f;
+        if (colorSync) {
+            rB = (float)Colors.INSTANCE.getCurrentColor().getRed() / 255.0f;
+            gB = (float)Colors.INSTANCE.getCurrentColor().getGreen() / 255.0f;
+            bB = (float)Colors.INSTANCE.getCurrentColor().getBlue() / 255.0f;
+            rO = (float)Colors.INSTANCE.getCurrentColor().getRed() / 255.0f;
+            gO = (float)Colors.INSTANCE.getCurrentColor().getGreen() / 255.0f;
+            bO = (float)Colors.INSTANCE.getCurrentColor().getBlue() / 255.0f;
+        }
+        if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+        aB *= alpha;
+        aO *= alpha;
+        if (box) {
+            GlStateManager.pushMatrix();
+            GlStateManager.enableBlend();
+            GlStateManager.disableDepth();
+            GlStateManager.tryBlendFuncSeparate((int)770, (int)771, (int)0, (int)1);
+            GlStateManager.disableTexture2D();
+            GlStateManager.depthMask((boolean)false);
+            GL11.glEnable((int)2848);
+            GL11.glHint((int)3154, (int)4354);
+            RenderGlobal.renderFilledBox((AxisAlignedBB)bb, (float)rB, (float)gB, (float)bB, (float)aB);
+            GL11.glDisable((int)2848);
+            GlStateManager.depthMask((boolean)true);
+            GlStateManager.enableDepth();
+            GlStateManager.enableTexture2D();
+            GlStateManager.disableBlend();
+            GlStateManager.popMatrix();
+        }
+        if (outline) {
+            GlStateManager.pushMatrix();
+            GlStateManager.enableBlend();
+            GlStateManager.disableDepth();
+            GlStateManager.tryBlendFuncSeparate((int)770, (int)771, (int)0, (int)1);
+            GlStateManager.disableTexture2D();
+            GlStateManager.depthMask((boolean)false);
+            GL11.glEnable((int)2848);
+            GL11.glHint((int)3154, (int)4354);
+            GL11.glLineWidth((float)lineWidth);
+            Tessellator tessellator = Tessellator.getInstance();
+            BufferBuilder bufferbuilder = tessellator.getBuffer();
+            bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
+            bufferbuilder.pos(bb.minX, bb.minY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.minY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.minY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.minY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.maxY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.minY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.maxY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.maxY, bb.maxZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.maxY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.minY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.maxX, bb.maxY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            bufferbuilder.pos(bb.minX, bb.maxY, bb.minZ).color(rO, gO, bO, aO).endVertex();
+            tessellator.draw();
+            GL11.glDisable((int)2848);
+            GlStateManager.depthMask((boolean)true);
+            GlStateManager.enableDepth();
+            GlStateManager.enableTexture2D();
+            GlStateManager.disableBlend();
+            GlStateManager.popMatrix();
+        }
     }
 
     public static void drawBoxESP(BlockPos pos, Color color, boolean secondC, Color secondColor, float lineWidth, boolean outline, boolean box, int boxAlpha, boolean air, double height, boolean gradientBox, boolean gradientOutline, boolean invertGradientBox, boolean invertGradientOutline, int gradientAlpha) {
