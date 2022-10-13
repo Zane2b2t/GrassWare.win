@@ -9,11 +9,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
-@Mod(modid = "quantum", name = "Quantum", version = "0.6.2")
+@Mod(modid = "quantum", name = "Quantum", version = "1.0")
 public class Quantum {
     public static final String MODID = "quantum";
     public static final String MODNAME = "Quantum";
-    public static final String MODVER = "0.6.2";
+    public static final String MODVER = "1.0";
     public static final Logger LOGGER = LogManager.getLogger("Quantum");
     public static TotemPopManager totemPopManager;
     public static TimerManager timerManager;
@@ -46,7 +46,7 @@ public class Quantum {
     }
 
     public static void load() {
-        LOGGER.info("\n\nLoading Quantum Continued");
+        LOGGER.info("\n\nLoading Quantum Continued Plus");
         unloaded = false;
         if (reloadManager != null) {
             reloadManager.unload();
@@ -83,11 +83,11 @@ public class Quantum {
         if (moduleManager.getModuleByClass(RPC.class).isEnabled()) {
             DiscordPresence.start();
         }
-        LOGGER.info("Quantum Continued successfully loaded!\n");
+        LOGGER.info("Quantum Continued Plus successfully loaded!\n");
     }
 
     public static void unload(boolean unload) {
-        LOGGER.info("\n\nUnloading Quantum continued");
+        LOGGER.info("\n\nUnloading Quantum continued plus");
         if (unload) {
             reloadManager = new ReloadManager();
             reloadManager.init(commandManager != null ? commandManager.getPrefix() : ".");
@@ -138,7 +138,7 @@ public class Quantum {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        Display.setTitle("Quantum Continued v" + MODVER);
+        Display.setTitle("Quantum Continued Plus v" + MODVER);
 
         Quantum.load();
     }
