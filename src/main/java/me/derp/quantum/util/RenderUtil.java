@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import me.derp.quantum.Quantum;
 import me.derp.quantum.features.modules.client.Colors;
-import me.derp.quantum.features.modules.player.Speedmine;
+import me.derp.quantum.features.modules.player.Packetmine;
 import me.derp.quantum.util.ColorUtil;
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.GLUProjection;
