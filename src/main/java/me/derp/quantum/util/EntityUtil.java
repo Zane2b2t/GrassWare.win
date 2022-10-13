@@ -19,7 +19,7 @@ import me.derp.quantum.features.modules.combat.Killaura;
 import me.derp.quantum.features.modules.player.Blink;
 import me.derp.quantum.features.modules.player.FakePlayer;
 import me.derp.quantum.features.modules.player.Freecam;
-import me.derp.quantum.mixin.mixins.accessors.IEntityLivingBase;
+import me.derp.quantum.mixin.mixins.IEntityLivingBase;
 import me.derp.quantum.util.BlockUtil;
 import me.derp.quantum.util.MathUtil;
 import me.derp.quantum.util.Util;
