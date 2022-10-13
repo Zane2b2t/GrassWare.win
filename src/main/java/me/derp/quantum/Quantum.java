@@ -28,6 +28,7 @@ public class Quantum {
     public static RotationManager rotationManager;
     public static PositionManager positionManager;
     public static SpeedManager speedManager;
+    public static SafetyManager safetyManager;
     public static ReloadManager reloadManager;
     public static FileManager fileManager;
     public static ConfigManager configManager;
