@@ -16,6 +16,7 @@ import me.derp.quantum.Quantum;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import me.derp.quantum.features.modules.client.Colors;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
@@ -35,6 +36,8 @@ import me.derp.quantum.features.modules.client.Colors;
 =======
 import me.derp.quantum.features.modules.client.Colors;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
+=======
+>>>>>>> 2af9576 (Update RenderUtil.java)
 import me.derp.quantum.features.modules.player.PacketMine;
 import me.derp.quantum.util.ColorUtil;
 import me.derp.quantum.util.EntityUtil;
