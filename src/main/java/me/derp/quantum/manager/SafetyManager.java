@@ -17,6 +17,7 @@ import me.derp.quantum.features.modules.client.Management;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.combat.AutoCrystal;
 =======
 >>>>>>> parent of e1545ed (More)
@@ -41,6 +42,8 @@ import me.derp.quantum.features.modules.combat.AutoCrystal;
 >>>>>>> parent of 13274c9 (Removed .github stuff)
 =======
 >>>>>>> parent of 8b2503e (More)
+=======
+>>>>>>> parent of e1545ed (More)
 import me.derp.quantum.util.BlockUtil;
 import me.derp.quantum.util.DamageUtil;
 import me.derp.quantum.util.EntityUtil;
