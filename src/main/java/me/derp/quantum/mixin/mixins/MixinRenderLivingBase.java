@@ -1,10 +1,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 package me.derp.quantum.mixin.mixins;
 
 import me.derp.quantum.Quantum;
 import me.derp.quantum.event.events.RenderEntityModelEvent;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -51,10 +55,13 @@ import me.derp.quantum.features.modules.render.Skeleton;
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.RenderUtil;
 =======
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 import me.derp.quantum.features.modules.client.ClickGui;
 import me.derp.quantum.features.modules.render.Wireframe;
 import me.derp.quantum.util.ColorUtil;
 import net.minecraft.client.Minecraft;
+<<<<<<< HEAD
 >>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
@@ -83,6 +90,11 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 >>>>>>> parent of 35da38a (Update MixinRenderLivingBase.java)
+=======
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -93,6 +105,9 @@ import net.minecraft.util.ResourceLocation;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -164,6 +179,7 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
     }
 
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of e1545ed (More)
@@ -249,6 +265,8 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
 
 
 >>>>>>> parent of 35da38a (Update MixinRenderLivingBase.java)
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
     private static final ResourceLocation glint = new ResourceLocation("textures/shinechams.png");
 
     public MixinRenderLivingBase(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
@@ -258,8 +276,11 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 35da38a (Update MixinRenderLivingBase.java)
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
 
     /**
      * @author d
@@ -290,6 +311,7 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
                     if (f3 * f3 > 2500.0F)
                         f += f3 * 0.2F;
                     f2 = f1 - f;
+<<<<<<< HEAD
 <<<<<<< HEAD
                 }
                 float f7 = entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks;
@@ -422,6 +444,8 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
                     cancel = true;
 =======
 >>>>>>> parent of 35da38a (Update MixinRenderLivingBase.java)
+=======
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
                 }
                 float f7 = entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * partialTicks;
                 renderLivingAt(entity, x, y, z);
@@ -536,6 +560,7 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 8b2503e (More)
 =======
 >>>>>>> parent of e1545ed (More)
@@ -543,3 +568,7 @@ public abstract class MixinRenderLivingBase<T extends EntityLivingBase> extends 
 
 
 >>>>>>> parent of 35da38a (Update MixinRenderLivingBase.java)
+=======
+
+
+>>>>>>> parent of 998bfe4 (Update MixinRenderLivingBase.java)
