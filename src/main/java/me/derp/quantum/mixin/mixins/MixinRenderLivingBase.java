@@ -3,8 +3,16 @@ package me.derp.quantum.mixin.mixins;
 
 import java.awt.Color;
 import me.derp.quantum.event.events.RenderEntityModelEvent;
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.render.Chams;
 import me.derp.quantum.features.modules.render.PopChams;
+=======
+import me.derp.quantum.features.modules.client.Colors;
+import me.derp.quantum.features.modules.render.Chams;
+import me.derp.quantum.features.modules.render.ESP;
+import me.derp.quantum.features.modules.render.PopChams;
+import me.derp.quantum.features.modules.render.Skeleton;
+>>>>>>> parent of e1545ed (More)
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.RenderUtil;
 import net.minecraft.client.model.ModelBase;

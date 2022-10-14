@@ -1,6 +1,7 @@
 package me.derp.quantum.manager;
 
 
+<<<<<<< HEAD
 import me.derp.quantum.Quantum;
 import me.derp.quantum.event.events.ThreadEvent;
 import me.derp.quantum.features.modules.combat.TooBeeCrystalAura;
@@ -12,6 +13,11 @@ import java.util.Queue;
 
 import static me.derp.quantum.features.Feature.nullCheck;
 
+=======
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+>>>>>>> parent of e1545ed (More)
 public class ThreadManager {
 
     // thread used by all modules

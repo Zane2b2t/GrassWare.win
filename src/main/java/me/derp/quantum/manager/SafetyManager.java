@@ -8,7 +8,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import me.derp.quantum.features.Feature;
 import me.derp.quantum.features.modules.client.Management;
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.combat.AutoCrystal;
+=======
+>>>>>>> parent of e1545ed (More)
 import me.derp.quantum.util.BlockUtil;
 import me.derp.quantum.util.DamageUtil;
 import me.derp.quantum.util.EntityUtil;
