@@ -11,6 +11,10 @@ import java.util.Objects;
 import me.derp.quantum.Quantum;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import me.derp.quantum.features.modules.client.Colors;
+>>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 =======
 import me.derp.quantum.features.modules.client.Colors;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')

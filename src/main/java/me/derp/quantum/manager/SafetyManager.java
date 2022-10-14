@@ -13,6 +13,7 @@ import me.derp.quantum.features.modules.client.Management;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.combat.AutoCrystal;
 =======
 >>>>>>> parent of e1545ed (More)
@@ -23,6 +24,9 @@ import me.derp.quantum.features.modules.combat.AutoCrystal;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 =======
 >>>>>>> parent of 509ddc3 (Revert "Removed .github stuff")
+=======
+import me.derp.quantum.features.modules.combat.AutoCrystal;
+>>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 =======
 import me.derp.quantum.features.modules.combat.AutoCrystal;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
