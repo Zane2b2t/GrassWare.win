@@ -3,6 +3,9 @@ package me.derp.quantum.manager;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 import me.derp.quantum.Quantum;
 import me.derp.quantum.event.events.ThreadEvent;
 import me.derp.quantum.features.modules.combat.TooBeeCrystalAura;
@@ -14,6 +17,7 @@ import java.util.Queue;
 
 import static me.derp.quantum.features.Feature.nullCheck;
 
+<<<<<<< HEAD
 =======
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -24,6 +28,8 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 >>>>>>> parent of 509ddc3 (Revert "Removed .github stuff")
+=======
+>>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 public class ThreadManager {
 
     // thread used by all modules

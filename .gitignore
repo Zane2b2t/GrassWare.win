@@ -59,7 +59,6 @@ Thumbs.db
 
 # Project #
 ###########
-.github
 .checkstyle
 .classpath
 .externalToolBuilders
