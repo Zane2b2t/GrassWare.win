@@ -14,6 +14,7 @@ import me.derp.quantum.features.modules.client.Management;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.combat.AutoCrystal;
 =======
 >>>>>>> parent of e1545ed (More)
@@ -30,6 +31,9 @@ import me.derp.quantum.features.modules.combat.AutoCrystal;
 =======
 import me.derp.quantum.features.modules.combat.AutoCrystal;
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
+=======
+import me.derp.quantum.features.modules.combat.AutoCrystal;
+>>>>>>> parent of 57bdf45 (Merge remote-tracking branch 'origin/main')
 import me.derp.quantum.util.BlockUtil;
 import me.derp.quantum.util.DamageUtil;
 import me.derp.quantum.util.EntityUtil;

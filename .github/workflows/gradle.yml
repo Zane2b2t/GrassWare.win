@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 name: Java CI with Gradle
 
 on: [push,pull_request]
@@ -38,6 +39,8 @@ jobs:
 
 =======
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
+=======
+>>>>>>> parent of 57bdf45 (Merge remote-tracking branch 'origin/main')
 name: Java CI with Gradle
 
 on: [push,pull_request]
@@ -65,9 +68,14 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
 <<<<<<< HEAD
+<<<<<<< HEAD
         arguments: build
 >>>>>>> 0e5b7e18c3836c0aaf9992a3f99d9fe62d436749
 =======
         name: Quantum Continued
         path: build/libs/*-release.jar
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
+=======
+        name: Quantum Continued
+        path: build/libs/*-release.jar
+>>>>>>> parent of 57bdf45 (Merge remote-tracking branch 'origin/main')
