@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c3b10db (Removed .github stuff)
 name: Java CI with Gradle
 
 on: [push,pull_request]
@@ -29,6 +32,7 @@ jobs:
       with:
         name: Quantum Continued
         path: build/libs/*-release.jar
+<<<<<<< HEAD
 =======
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -79,3 +83,5 @@ jobs:
         name: Quantum Continued
         path: build/libs/*-release.jar
 >>>>>>> parent of 57bdf45 (Merge remote-tracking branch 'origin/main')
+=======
+>>>>>>> parent of c3b10db (Removed .github stuff)
