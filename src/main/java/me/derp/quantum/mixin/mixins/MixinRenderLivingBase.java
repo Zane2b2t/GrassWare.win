@@ -6,6 +6,7 @@ import me.derp.quantum.event.events.RenderEntityModelEvent;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import me.derp.quantum.features.modules.client.Colors;
 >>>>>>> parent of 20f91c3 (Revert "Merge remote-tracking branch 'origin/main'")
@@ -15,9 +16,11 @@ import me.derp.quantum.features.modules.render.PopChams;
 <<<<<<< HEAD
 =======
 import me.derp.quantum.features.modules.client.Colors;
+=======
+>>>>>>> parent of cd728ee (Update MixinRenderLivingBase.java)
 import me.derp.quantum.features.modules.render.Chams;
-import me.derp.quantum.features.modules.render.ESP;
 import me.derp.quantum.features.modules.render.PopChams;
+<<<<<<< HEAD
 import me.derp.quantum.features.modules.render.Skeleton;
 >>>>>>> parent of e1545ed (More)
 =======
@@ -30,6 +33,8 @@ import me.derp.quantum.features.modules.render.ESP;
 import me.derp.quantum.features.modules.render.PopChams;
 import me.derp.quantum.features.modules.render.Skeleton;
 >>>>>>> parent of 20f91c3 (Revert "Merge remote-tracking branch 'origin/main'")
+=======
+>>>>>>> parent of cd728ee (Update MixinRenderLivingBase.java)
 import me.derp.quantum.util.EntityUtil;
 import me.derp.quantum.util.RenderUtil;
 =======
