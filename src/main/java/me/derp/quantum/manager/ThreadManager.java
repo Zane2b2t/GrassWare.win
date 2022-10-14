@@ -9,6 +9,7 @@ package me.derp.quantum.manager;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 0c0a21a (Merge remote-tracking branch 'origin/main')
 =======
@@ -60,6 +61,11 @@ import java.util.Queue;
 >>>>>>> parent of 57bdf45 (Merge remote-tracking branch 'origin/main')
 =======
 >>>>>>> parent of 13274c9 (Removed .github stuff)
+=======
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+>>>>>>> parent of 8b2503e (More)
 public class ThreadManager {
 
     // thread used by all modules
