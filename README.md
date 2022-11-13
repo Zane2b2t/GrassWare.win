@@ -1,4 +1,4 @@
-# Quantum++ | continuation of a continuation of a weird client!
+# GrassWare.win | rename of a continuation of a continuation of a weird client!
 
 <p align="center">
   <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://img.shields.io/badge/Minecraft Version-1.12.2-brightgreen.svg" alt="Minecraft"/></a>
@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-this client was made because zane liked quantum!
+this client was made because zane likes grass!
 </p>
 
 <p align="center">
@@ -22,14 +22,14 @@ quantum continued | https://github.com/fan4145/quantum-continued-releases
 ## Installing
 
 1. Download the latest version of [Minecraft Forge](https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar) for the corresponding 
-Quantum Minecraft version (1.12.2).
-2. Download the latest Quantum build by going to the [releases](https://github.com/MrBubblegum/quantum-continued-continued/releases) section.
+GrassWare.win Minecraft version (1.12.2).
+2. Download the latest GrassWare.win build by going to the [releases]https://github.com/Zane2b2t/GrassWare.win/releases) section.
 Do NOT install the jar that contains `sources`. That one contains the source code and isn't compiled.
-3. Place the Quantum jar into the `.minecraft/mods/` directory. If you want to organize by Minecraft version, 
+3. Place the GrassWare.win jar into the `.minecraft/mods/` directory. If you want to organize by Minecraft version, 
 you can place it under `.minecraft/mods/{mc.version}` where `mc.version` is 
 the version of Minecraft running (ex: `.minecraft/mods/1.12.2`). NOTE: This is will not work for 1.13+ version! You can
 only put the mod jar in the `/mods` folder!
-4. Launch Minecraft using the Forge profile. Quantum should now be loaded.
+4. Launch Minecraft using the Forge profile. GrassWare.win should now be loaded.
 
 <p align="center">
 Thanks @Rat2b2t for the amazing readme!!!!!1
