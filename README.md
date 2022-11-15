@@ -12,11 +12,11 @@ this client was made because zane likes grass!
 </p>
 
 <p align="center">
-original quantum | https://github.com/fan4145/quantum-src-releases
+original quantum | https://github.com/PlutoSolutions/6god-Quantum
 </p>
 
 <p align="center">
-quantum continued | https://github.com/fan4145/quantum-continued-releases
+quantum continued | https://github.com/fan4145/quantum-src-releases
 </p>
 
 ## Installing
