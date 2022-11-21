@@ -43,11 +43,5 @@ public abstract class MixinItemRenderer {
 
     @Inject(method = {"renderSuffocationOverlay"}, at = {@At(value = "HEAD")}, cancellable = true)
     public void renderSuffocationOverlay(CallbackInfo ci) {
-        if (NoRender.getInstance().isOn() && NoRender.getInstance().blocks.getValue()) {
+        if (NoRender.getInstance().isOn() && NoRender.getInstance().blocks.getValue()) 
             ci.cancel();
-        }
-    
-
-
-
-
