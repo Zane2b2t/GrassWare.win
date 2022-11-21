@@ -121,7 +121,7 @@ public class Module
                 }
                             
                 case SYNCCLIENT: {
-                     return new TextComponentString(ChatFormatting.DARK_PURPLE + "[" + ChatFormatting.PINK + "SyncClient" + ChatFormatting.DARK_PURPLE + "] " + ChatFormatting.DARK_AQUA + this.getDisplayName() + ChatFormatting.LIGHT_PURPLE + " was " + ChatFormatting.GREEN + "enabled.");
+                     return new TextComponentString(ChatFormatting.DARK_PURPLE + "[" + ChatFormatting.LIGHT_PURPLE + "SyncClient" + ChatFormatting.DARK_PURPLE + "] " + ChatFormatting.DARK_AQUA + this.getDisplayName() + ChatFormatting.LIGHT_PURPLE + " was " + ChatFormatting.GREEN + "enabled.");
 
                 }       
                 case TROLLGOD: {
