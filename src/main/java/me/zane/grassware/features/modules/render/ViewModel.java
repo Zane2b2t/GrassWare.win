@@ -2,32 +2,47 @@ package me.zane.grassware.features.modules.render;
 
 import me.zane.grassware.features.modules.Module;
 import me.zane.grassware.features.setting.Setting;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+public class Wireframe
+        extends Module {
+    private static Wireframe INSTANCE = new Wireframe();
+    public final Setting<Float> alpha = this.register(new Setting<Float>("PAlpha", Float.valueOf(255.0f), Float.valueOf(0.1f), Float.valueOf(255.0f)));
+//  public final Setting<Float> cAlpha = this.register(new Setting<Float>("CAlpha", Float.valueOf(255.0f), Float.valueOf(0.1f), Float.valueOf(255.0f)));
+    public final Setting<Float> lineWidth = this.register(new Setting<Float>("PLineWidth", Float.valueOf(1.0f), Float.valueOf(0.1f), Float.valueOf(3.0f)));
+//  public final Setting<Float> crystalLineWidth = this.register(new Setting<Float>("CLineWidth", Float.valueOf(1.0f), Float.valueOf(0.1f), Float.valueOf(3.0f)));
+    public Setting<RenderMode> mode = this.register(new Setting<RenderMode>("PMode", RenderMode.SOLID));
+//  public Setting<RenderMode> cMode = this.register(new Setting<RenderMode>("CMode", RenderMode.SOLID));
+    public Setting<Boolean> players = this.register(new Setting<Boolean>("Players", Boolean.FALSE));
+    public Setting<Boolean> playerModel = this.register(new Setting<Boolean>("PlayerModel", Boolean.FALSE));
+//  nampublic Setting<Boolean> crystals = this.register(new Setting<Boolean>("Crystals", Boolean.FALSE));
+//  public Setting<Boolean> crystalModel = this.register(new Setting<Boolean>("CrystalModel", Boolean.FALSE));
 
-public class ViewModel extends Module {
-
-    public final Setting<Integer> translateX = this.register(new Setting<>("TranslateX", 0, -200, 200));
-    public final Setting<Integer> translateY = this.register(new Setting<>("TranslateY", 0, -200, 200));
-    public final Setting<Integer> translateZ = this.register(new Setting<>("TranslateZ", 0, -200, 200));
-
-    public final Setting<Integer> rotateX = this.register(new Setting<>("RotateX", 0, -200, 200));
-    public final Setting<Integer> rotateY = this.register(new Setting<>("RotateY", 0, -200, 200));
-    public final Setting<Integer> rotateZ = this.register(new Setting<>("RotateZ", 0, -200, 200));
-
-    public final Setting<Integer> scaleX = this.register(new Setting<>("ScaleX", 100, 0, 200));
-    public final Setting<Integer> scaleY = this.register(new Setting<>("ScaleY", 100, 0, 200));
-    public final Setting<Integer> scaleZ = this.register(new Setting<>("ScaleZ", 100, 0, 200));
-
-
-    public static ViewModel INSTANCE;
-
-    public ViewModel() {
-        super("ViewModel", "Cool", Category.RENDER, true, false, false);
+    public Wireframe() {
+        super("Wireframe", "Draws a wireframe esp around other players.", Module.Category.RENDER, false, false, false);
+        this.setInstance();
     }
 
-    {
+    public static Wireframe getINSTANCE() {
+        if (INSTANCE == null) {
+            INSTANCE = new Wireframe();
+        }
+        return INSTANCE;
+    }
+
+    private void setInstance() {
         INSTANCE = this;
     }
 
+    @SubscribeEvent
+    public void onRenderPlayerEvent(RenderPlayerEvent.Pre event) {
+        event.getEntityPlayer().hurtTime = 0;
+    }
 
+    public enum RenderMode {
+        SOLID,
+        WIREFRAME
+
+    }
 }
