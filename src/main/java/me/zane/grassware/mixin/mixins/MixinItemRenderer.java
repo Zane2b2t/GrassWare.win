@@ -46,7 +46,7 @@ public abstract class MixinItemRenderer {
         if (NoRender.getInstance().isOn() && NoRender.getInstance().blocks.getValue()) {
             ci.cancel();
         }
-    }
+    
 
 
 
