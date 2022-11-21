@@ -1,7 +1,6 @@
 package me.zane.grassware.mixin.mixins;
 
 import me.zane.grassware.features.modules.render.NoRender;
-import me.zane.grassware.features.modules.render.ViewModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
