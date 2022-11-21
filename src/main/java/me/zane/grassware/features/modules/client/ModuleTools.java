@@ -29,6 +29,7 @@ public class ModuleTools extends Module {
         PHOBOS,
         FUTURE,
         DOTGOD
+        SyncClient
     }
 
     public enum PopNotifier {
