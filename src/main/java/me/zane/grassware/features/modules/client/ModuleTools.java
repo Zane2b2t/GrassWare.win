@@ -28,14 +28,15 @@ public class ModuleTools extends Module {
         TROLLGOD,
         PHOBOS,
         FUTURE,
-        DOTGOD
-        SyncClient
+        DOTGOD,
+        SYNCCLIENT
     }
 
     public enum PopNotifier {
         PHOBOS,
         FUTURE,
         DOTGOD,
+        SYNCCLIENT,
         NONE
     }
 
