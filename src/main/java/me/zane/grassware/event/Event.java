@@ -1,4 +1,6 @@
-package me.zane.grassware.fire;
+package me.zane.grassware.event;
+
+import me.zane.grassware.event.Stage;
 
 public class Event {
     protected final Stage stage;

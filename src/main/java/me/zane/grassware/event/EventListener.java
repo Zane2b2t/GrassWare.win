@@ -1,10 +1,10 @@
-package me.zane.grassware.fire;
+package me.zane.grassware.event;
 
 import me.zane.grassware.Quantum;
 import net.minecraft.client.Minecraft;
 
 public abstract class EventListener<E, M> {
-    protected final Minecraft mc = Main.mc;
+    protected final Minecraft mc = Quantum.mc;
     protected final Class<? extends E> listener;
     public M module;
 

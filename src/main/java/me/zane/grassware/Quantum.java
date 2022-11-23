@@ -3,6 +3,7 @@ package me.zane.grassware;
 import me.zane.grassware.features.modules.misc.RPC;
 import me.zane.grassware.manager.*;
 import me.zane.grassware.manager.*;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +17,8 @@ public class Quantum {
     public static final String MODNAME = "Quantum";
     public static final String MODVER = "0.6.1";
     public static final Logger LOGGER = LogManager.getLogger("Quantum");
+
+    public static Minecraft mc;
     public static TotemPopManager totemPopManager;
     public static TimerManager timerManager;
     public static CommandManager commandManager;
@@ -52,6 +55,7 @@ public class Quantum {
             reloadManager.unload();
             reloadManager = null;
         }
+        mc = Minecraft.getMinecraft();
         totemPopManager = new TotemPopManager();
         timerManager = new TimerManager();
         textManager = new TextManager();

@@ -1,4 +1,4 @@
-package me.zane.grassware.fire;
+package me.zane.grassware.event;
 
 public enum Stage {
     Pre,

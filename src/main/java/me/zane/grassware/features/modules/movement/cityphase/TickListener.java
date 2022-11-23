@@ -1,7 +1,8 @@
-package me.zane.grassware.features.modules.movement.CityPhase;
+package me.zane.grassware.features.modules.movement.cityphase;
 
-import me.zane.grassware.fire.EventListener;
-import me.zane.grassware.fire.TickEvent;
+import me.zane.grassware.event.EventListener;
+import me.zane.grassware.event.events.TickEvent;
+import me.zane.grassware.features.modules.movement.CityPhase;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.util.math.MathHelper;
 
@@ -14,7 +15,7 @@ public class TickListener extends EventListener<TickEvent, CityPhase> {
     @Override
     public void invoke(final Object object) {
         if (module.movingByKeys()) {
-            module.setEnabled(false);
+            module.toggle();
             return;
         }
         if (mc.world.getCollisionBoxes(mc.player, mc.player.getEntityBoundingBox().grow(0.01, 0, 0.01)).size() < 2) {
