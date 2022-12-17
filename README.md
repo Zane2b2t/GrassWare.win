@@ -1,4 +1,4 @@
-# [DISCONTINUED ]GrassWare.win | rename of a continuation of a continuation of a weird client!
+# [DISCONTINUED] GrassWare.win | rename of a continuation of a continuation of a weird client!
 
 <p align="center">
   <a href="https://github.com/Zane2b2t/quantum-Continued-Plus"><img src="https://img.shields.io/badge/Minecraft Version-1.12.2-brightgreen.svg" alt="Minecraft"/></a>
